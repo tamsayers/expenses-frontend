@@ -6,13 +6,29 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'src/<%= pkg.name %>.js',
+        src: 'src/**/*.js',
         dest: 'app/js/<%= pkg.name %>.min.js'
+      }
+    },
+    karma: {
+      options: {
+        browsers : ['PhantomJS'],
+        frameworks: ['jasmine'],
+        singleRun: false,
+        files: [
+          { pattern: 'test/**/*.js', served: true },
+          { pattern: 'src/**/*.js', served: true },
+          { pattern: 'app/lib/**/*.js', served: true, included: false }
+        ]
+      },
+      unit: {
+        singleRun: true
       }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
-  grunt.registerTask('default', ['uglify']);
+  grunt.loadNpmTasks('grunt-karma');
+  
+  grunt.registerTask('default', ['karma', 'uglify']);
 };
