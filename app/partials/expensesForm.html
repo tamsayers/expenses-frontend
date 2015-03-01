@@ -1,0 +1,14 @@
+<form class="expenses-form">
+  <fieldset class="expense">
+    <input class="expense__date" type="datetime-local" name="date" />
+    <textarea class="expense__description" name="description" ></textarea>
+    <input class="expense__client-name" type="text" name="clientName" />
+    <input class="expense__supplier" type="text" name="supplier" />
+    <input class="expense__cost-amount" type="number" pattern="^\d+\.\d{2}" name="cost.amount" />
+    <select class="expense__cost-type" name="cost.costType">
+      <option>Simple</option>
+      <option>Mileage</option>
+      <option>Vatable</option>
+    </select>
+  </fieldset>
+</form>
