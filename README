@@ -1,0 +1,21 @@
+To remove all docker containers:
+```
+docker rm -f $(docker ps -a -q)
+```
+
+To build and run:
+```
+docker build -t expenses-frontend .
+docker run --name expenses-nginx -d -p 80:80 expenses-frontend
+```
+
+To remove specific container:
+```
+ docker rm -f expenses-nginx
+``` 
+
+Boot2Docker init and set env
+```
+boot2docker up
+$(boot2docker shellinit)
+```
