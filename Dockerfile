@@ -1,2 +1,5 @@
 FROM nginx
-COPY app /usr/share/nginx/html
+
+COPY deploy/nginx/nginx.conf /etc/nginx/nginx.conf
+
+CMD ["nginx", "-g", "daemon off;"]

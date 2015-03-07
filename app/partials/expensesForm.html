@@ -1,19 +1,21 @@
-<form class="expenses-form">
+<form class="expenses-form" data-ng-submit="postExpenses()" data-ng-controller="ExpensesFormController">
   <fieldset class="expense">
     <label for="date">Date</label>
-    <input class="expense__date" type="date" name="date" />
+    <input class="expense__date" type="date" data-ng-model="expense.date" />
     <label for="description">Description</label>
-    <input class="expense__description" type="text" name="description" />
+    <input class="expense__description" type="text" data-ng-model="expense.description" />
     <label for="clientName">Client Name</label>
-    <input class="expense__client-name" type="text" name="clientName" />
+    <input class="expense__client-name" type="text" data-ng-model="expense.clientName" />
     <label for="supplier">Supplier</label>
-    <input class="expense__supplier" type="text" name="supplier" />
+    <input class="expense__supplier" type="text" data-ng-model="expense.supplier" />
     <label for="cost">Cost</label>
-    <input class="expense__cost-amount" type="text" pattern="^\d+\.\d{2}" name="cost.amount" />
-    <select class="expense__cost-type" name="cost.costType">
+    <input class="expense__cost-amount" type="text" pattern="^\d+\.\d{2}" data-ng-model="expense.cost.amount" />
+    <select class="expense__cost-type" data-ng-model="expense.cost.costType">
       <option>Simple</option>
       <option>Mileage</option>
       <option>Vatable</option>
     </select>
   </fieldset>
+  
+  <input type="submit" value="Submit" />
 </form>

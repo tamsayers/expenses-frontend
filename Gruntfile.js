@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         singleRun: false,
         files: [
           { pattern: 'test/**/*.js', served: true },
-          { pattern: 'src/**/*.js', served: true },
+          //{ pattern: 'src/**/*.js', served: true },
           { pattern: 'app/lib/**/*.js', served: true, included: false }
         ]
       },

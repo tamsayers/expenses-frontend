@@ -3,10 +3,16 @@ To remove all docker containers:
 docker rm -f $(docker ps -a -q)
 ```
 
-To build and run:
+To build and run using dockerfile content (With COPY app /usr/share/nginx/html):
 ```
 docker build -t expenses-frontend .
 docker run --name expenses-nginx -d -p 80:80 expenses-frontend
+```
+
+Without COPY, mounting local dir to nginx dir.
+```
+docker run --name expenses-nginx -d -p 80:80 -v /Users/tamsayers/scala-workspace/expenses-frontend/app:/usr/share/nginx/html expenses-frontend
+docker run -d -P -v /Users/tamsayers/scala-workspace/expenses-frontend/app:/usr/share/nginx/html --name expenses-nginx expenses-frontend
 ```
 
 To remove specific container:
@@ -18,4 +24,9 @@ Boot2Docker init and set env
 ```
 boot2docker up
 $(boot2docker shellinit)
+```
+
+To open terminal to docker container:
+```
+docker exec -it <container-id> bash
 ```
