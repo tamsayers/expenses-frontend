@@ -14,15 +14,17 @@ module.exports = function(grunt) {
       options: {
         browsers : ['PhantomJS'],
         frameworks: ['jasmine'],
-        singleRun: false,
         files: [
-          { pattern: 'test/**/*.js', served: true },
-          //{ pattern: 'src/**/*.js', served: true },
-          { pattern: 'app/lib/**/*.js', served: true, included: false }
+          { pattern: 'app/lib/**/*.js', served: true },
+          { pattern: 'src/**/*.js', served: true },
+          { pattern: 'test/**/*.js', served: true }
         ]
       },
       unit: {
         singleRun: true
+      },
+      dev: {
+        singleRun: false
       }
     }
   });

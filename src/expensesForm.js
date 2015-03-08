@@ -10,8 +10,6 @@ app.factory('api', ['$http', function($http) {
 }]);
 app.controller('ExpensesFormController', ['$scope', 'api', function($scope, api) {
   $scope.postExpenses = function() {
-    console.log('submitted');
-    console.log('api variable: ' + api);
     api.post('/expenses', $scope.expense);
   };
 }]);
