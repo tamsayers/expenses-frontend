@@ -1,15 +1,20 @@
-var app = angular.module('expensesApp', []);
+angular.module('exp.development', []).constant('appConfig', {
+  backend: 'http://localhost:9000'
+});
+
+var app = angular.module('expensesApp', ['exp.development']);
 // service for api requests - put in separate file?
-app.factory('api', ['$http', function($http) {
+app.factory('apiRequest', ['$http', 'appConfig', function($http, appConfig) {
   return {
-    post: function(serviceName, data) {
-      console.log('posting to ' + serviceName + ', data: ' + JSON.stringify(data));
-      //return $http.post('https://api.github.com/users/jasonmore');
+    post: function(resource, data) {
+      alert(appConfig);
+      var url = appConfig.backend + resource;
+      return $http.post(url, data);
     }
   }
 }]);
-app.controller('ExpensesFormController', ['$scope', 'api', function($scope, api) {
+app.controller('ExpensesFormController', ['$scope', 'apiRequest', function($scope, apiRequest) {
   $scope.postExpenses = function() {
-    api.post('/expenses', $scope.expense);
+    apiRequest.post('/expenses', $scope.expense);
   };
 }]);

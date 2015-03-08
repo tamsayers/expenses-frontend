@@ -1,7 +1,7 @@
 describe('expenses controller function', function() {
 
   describe('form submit', function() {
-    var $scope, api;
+    var $scope, apiRequest;
 
     beforeEach(module('expensesApp'));
 
@@ -10,16 +10,16 @@ describe('expenses controller function', function() {
       $scope.expense = {
           description: "desc"
       }
-      api = {
+      apiRequest = {
           post: function() {}
       };
-      spyOn(api, 'post');
-      $controller('ExpensesFormController', {$scope: $scope, api: api});
+      spyOn(apiRequest, 'post');
+      $controller('ExpensesFormController', {$scope: $scope, apiRequest: apiRequest});
     }));
 
     it('should use api to post expenses data', function() {
       $scope.postExpenses();
-      expect(api.post).toHaveBeenCalledWith('/expenses', $scope.expense);
+      expect(apiRequest.post).toHaveBeenCalledWith('/expenses', $scope.expense);
     });
   });
 });
