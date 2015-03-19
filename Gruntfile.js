@@ -23,11 +23,21 @@ module.exports = function(grunt) {
       unit: {
         singleRun: true
       }
+    },
+    protractor: {
+      options: {
+        keepAlive: true, // If false, the grunt process stops when the test fails. 
+        noColor: false, // If true, protractor will not use colors in its output. 
+      },
+      acceptance: {   // Grunt requires at least one target to run so you can simply put 'all: {}' here too. 
+        configFile: "acc-test/conf.js", // Target-specific config file 
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-protractor-runner');
   
   grunt.registerTask('default', ['karma', 'uglify']);
 };

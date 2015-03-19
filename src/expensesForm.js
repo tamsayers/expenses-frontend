@@ -7,7 +7,6 @@ var app = angular.module('expensesApp', ['exp.development']);
 app.factory('apiRequest', ['$http', 'appConfig', function($http, appConfig) {
   return {
     post: function(resource, data) {
-      alert(appConfig);
       var url = appConfig.backend + resource;
       return $http.post(url, data);
     }

@@ -11,7 +11,7 @@ docker run --name expenses-nginx -d -p 80:80 expenses-frontend
 
 Without COPY, mounting local dir to nginx dir.
 ```
-docker run --name expenses-nginx -d -p 80:80 -v /Users/tamsayers/scala-workspace/expenses-frontend/app:/usr/share/nginx/html expenses-frontend
+docker run --name expenses-nginx -d -p 8080:80 -v /Users/tamsayers/scala-workspace/expenses-frontend/app:/usr/share/nginx/html expenses-frontend
 docker run -d -P -v /Users/tamsayers/scala-workspace/expenses-frontend/app:/usr/share/nginx/html --name expenses-nginx expenses-frontend
 ```
 
