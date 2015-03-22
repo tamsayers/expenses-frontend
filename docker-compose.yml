@@ -1,0 +1,13 @@
+web:
+  build: .
+  ports:
+   - "8080:80"
+  volumes:
+   - app/:/usr/share/nginx/html
+  links:
+   - api
+api:
+  image: expenses-api:1.0.0-SNAPSHOT
+  ports:
+   - "9000:9000"
+  

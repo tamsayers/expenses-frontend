@@ -3,6 +3,11 @@ To remove all docker containers:
 docker rm -f $(docker ps -a -q)
 ```
 
+To remove specific container:
+```
+ docker rm -f expenses-nginx
+``` 
+
 To build and run using dockerfile content (With COPY app /usr/share/nginx/html):
 ```
 docker build -t expenses-frontend .
@@ -15,10 +20,10 @@ docker run --name expenses-nginx -d -p 8080:80 -v /Users/tamsayers/scala-workspa
 docker run -d -P -v /Users/tamsayers/scala-workspace/expenses-frontend/app:/usr/share/nginx/html --name expenses-nginx expenses-frontend
 ```
 
-To remove specific container:
+To remove all images: 
 ```
- docker rm -f expenses-nginx
-``` 
+docker rmi $(docker images -q)
+```
 
 Boot2Docker init and set env
 ```
