@@ -10,4 +10,5 @@ api:
   image: expenses-api:1.0.0-SNAPSHOT
   ports:
    - "9000:9000"
-  
+  volumes:
+   - ~/expenses/:/var/expenses/

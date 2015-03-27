@@ -19,7 +19,7 @@ describe('expenses controller function', function() {
 
     it('should use api to post expenses data', function() {
       $scope.postExpenses();
-      expect(apiRequest.post).toHaveBeenCalledWith('/expenses', $scope.expense);
+      expect(apiRequest.post).toHaveBeenCalledWith('/expenses', [$scope.expense]);
     });
   });
 });

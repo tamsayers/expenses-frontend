@@ -14,6 +14,6 @@ app.factory('apiRequest', ['$http', 'appConfig', function($http, appConfig) {
 }]);
 app.controller('ExpensesFormController', ['$scope', 'apiRequest', function($scope, apiRequest) {
   $scope.postExpenses = function() {
-    apiRequest.post('/expenses', $scope.expense);
+    apiRequest.post('/expenses', [$scope.expense]);
   };
 }]);
