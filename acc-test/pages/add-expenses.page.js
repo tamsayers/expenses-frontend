@@ -12,9 +12,14 @@ module.exports = function() {
       amount: element(by.model('expense.cost.amount')),
       type: element(by.model('expense.cost.costType'))
   };
-  page.submitButton = element(by.css('.expenses-form input[type=submit]'));
+  page.submitButton = element(by.css('.expenses-form__submit'));
+  page.addExpense = element(by.css('.expenses-form__add-expense'));
   
   page.cost.type.select = function(value) {
     page.cost.type.element(by.css('option[value="Simple"]')).click();
+  };
+  
+  page.expenses = function() {
+    return element.all(by.css('.expense'));
   };
 };
