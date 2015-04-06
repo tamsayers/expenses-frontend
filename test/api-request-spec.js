@@ -1,9 +1,9 @@
 describe('expenses api request', function() {
+  
+  beforeEach(module('expensesApp'));
 
   describe('post', function() {
     var $http, apiRequest;
-
-    beforeEach(module('expensesApp'));
 
     beforeEach(inject(function(_apiRequest_, _$http_, appConfig) {
       $http = _$http_;

@@ -1,7 +1,7 @@
 var AddExpensesPage = require('../pages/add-expenses.page.js');
 
-describe('angularjs homepage todo list', function() {
-  it('should add a todo', function() {
+describe('add expenses', function() {
+  it('should submit valid expenses', function() {
     var addExpensesPage = new AddExpensesPage();
 
     addExpensesPage.go();

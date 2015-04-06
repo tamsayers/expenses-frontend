@@ -15,7 +15,8 @@ module.exports = function(grunt) {
         browsers : ['PhantomJS'],
         frameworks: ['jasmine'],
         files: [
-          { pattern: 'app/lib/**/*.js', served: true },
+          'app/lib/angular/1.3.14/angular.js',
+          'app/lib/angular/1.3.14/angular-route.js',
           { pattern: 'src/**/*.js', served: true },
           { pattern: 'test/**/*.js', served: true }
         ]
