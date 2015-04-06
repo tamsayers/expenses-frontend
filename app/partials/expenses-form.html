@@ -1,5 +1,5 @@
 <form class="expenses-form" data-ng-submit="postExpenses()" data-ng-controller="ExpensesFormController">
-  <fieldset class="expense">
+  <fieldset class="expense" data-ng-repeat="expense in expenses">
     <label for="date">Date</label>
     <input class="expense__date" type="text" data-ng-model="expense.date" />
     <label for="description">Description</label>
