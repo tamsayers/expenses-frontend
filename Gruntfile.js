@@ -18,7 +18,8 @@ module.exports = function(grunt) {
           'app/lib/angular/1.3.14/angular.js',
           'app/lib/angular/1.3.14/angular-route.js',
           { pattern: 'src/**/*.js', served: true },
-          { pattern: 'test/**/*.js', served: true }
+          { pattern: 'test/lib/**/*.js', served: true },
+          { pattern: 'test/spec/**/*.js', served: true }
         ]
       },
       unit: {

@@ -1,35 +1,39 @@
 describe('expenses controller function', function() {
-  beforeEach(module('expensesApp'));
+  beforeEach(module('AddExpenses'));
 
-  var $scope, apiRequest;
+  var $scope, addExpensesService, apiRequest;
 
-  beforeEach(inject(function($rootScope, $controller) {
+  beforeEach(inject(function($rootScope, $controller, _addExpensesService_) {
     $scope = $rootScope.$new();
-
+    addExpensesService = _addExpensesService_;
+    
     apiRequest = {
       post : function() {
       }
     };
     $controller('ExpensesFormController', {
-      $scope : $scope,
-      apiRequest : apiRequest
+      $scope: $scope,
+      apiRequest: apiRequest, 
+      addExpensesService: addExpensesService
     });
   }));
 
   describe('form submit', function() {
     beforeEach(function() {
-      $scope.expenses = [ {
+      $scope.expenses = [{
         description : "desc1"
-      }, {
-        description : "desc2"
-      } ];
+      }];
 
       spyOn(apiRequest, 'post');
     });
 
     it('should use api to post expenses data', function() {
+      var expectedPostData = { 
+          data: $scope.expenses, 
+          success: addExpensesService.success 
+      };
       $scope.postExpenses();
-      expect(apiRequest.post).toHaveBeenCalledWith('/expenses', $scope.expenses);
+      expect(apiRequest.post).toHaveBeenCalledWith('/expenses', expectedPostData);
     });
   });
 

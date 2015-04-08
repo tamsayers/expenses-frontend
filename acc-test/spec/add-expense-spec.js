@@ -1,4 +1,5 @@
 var AddExpensesPage = require('../pages/add-expenses.page.js');
+var HomePage = require('../pages/home.page.js');
 
 describe('the expenses form', function() {
   var addExpensesPage;
@@ -18,7 +19,7 @@ describe('the expenses form', function() {
 
     addExpensesPage.submitButton.click();
 
-    // verify saved - move page to expenses list?
+    expect(new HomePage().expensesAddedSuccessfully()).toBe(true);
   });
 
   it('should add another expenses row', function() {

@@ -1,6 +1,6 @@
 describe('expenses api request', function() {
   
-  beforeEach(module('expensesApp'));
+  beforeEach(module('ExpensesUtils'));
 
   describe('post', function() {
     var $http, apiRequest;
