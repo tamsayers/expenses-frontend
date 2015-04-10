@@ -3,9 +3,9 @@ angular.module('ExpensesUtils', ['exp.development']).factory('apiRequest', [
     'appConfig',
     function($http, appConfig) {
   return {
-    post: function(resource, data) {
+    post: function(resource, config) {
       var url = appConfig.backend + resource;
-      return $http.post(url, data);
+      return $http.post(url, config.data).success(config.success);
     }
   }
 }]);
