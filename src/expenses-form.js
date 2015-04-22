@@ -1,5 +1,5 @@
 // service for api requests - put in separate file?
-angular.module('AddExpenses', []).controller('ExpensesFormController', [
+angular.module('AddExpenses', ['expensesApp']).controller('ExpensesFormController', [
     '$scope',
     'apiRequest',
     'addExpensesService', 
@@ -13,8 +13,10 @@ angular.module('AddExpenses', []).controller('ExpensesFormController', [
     $scope.expenses.push({});
   };
 }])
-.service('addExpensesService', ['$location', function($location) {
+.service('addExpensesService', ['$location', 'messages', function($location, messages) {
   this.success = function() {
+    messages.reset();
+    messages.add('Expenses successfully added.');
     $location.path('/');
   }
 }]);
