@@ -29,4 +29,24 @@ describe('application', function() {
       expect($route.current.controller).toBe(undefined)
     });
   });
+  
+  describe('messages', function() {
+    var messages;
+
+    beforeEach(inject(function(_messages_) {
+      messages = _messages_;
+      messages.add('message 1');
+      messages.add('message 2');
+    }));
+
+    it('should store messages', function() {
+      expect(messages.get()).toEqual(['message 1', 'message 2']);
+    });
+
+    it('should remove all messages', function() {
+      messages.reset();
+
+      expect(messages.get()).toEqual([]);
+    });
+  });
 });

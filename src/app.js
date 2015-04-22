@@ -13,4 +13,18 @@ angular.module('expensesApp', [
   }).otherwise({
     templateUrl : 'partials/home.html',
   });
-}]);
+}]).service('messages', function() {
+  var messages = [];
+
+  return {
+    get: function() {
+      return messages;
+    },
+    add: function(message) {
+      messages.push(message);
+    },
+    reset: function() {
+      messages = [];
+    }
+  };
+});
