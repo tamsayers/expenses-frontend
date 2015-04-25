@@ -4,7 +4,7 @@ module.exports = function() {
     browser.get('http://localhost:8080/index.html');
   };
 
-  page.expensesAddedSuccessfully = function() {
-    element(by.css('.feedback--expenses-success')).getText().length > 0;
+  page.expectExpensesAddedSuccessfully = function() {
+    expect(element(by.css('.feedback__message')).getText()).toEqual('Expenses successfully added.');
   }
 };

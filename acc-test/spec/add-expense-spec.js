@@ -6,10 +6,10 @@ describe('the expenses form', function() {
 
   beforeEach(function() {
     addExpensesPage = new AddExpensesPage();
+    addExpensesPage.go();
   });
 
   it('should submit valid expenses', function() {
-    addExpensesPage.go();
     addExpensesPage.date.sendKeys('2015-01-01');
     addExpensesPage.description.sendKeys('Description 1');
     addExpensesPage.clientName.sendKeys('Client');
@@ -19,7 +19,7 @@ describe('the expenses form', function() {
 
     addExpensesPage.submitButton.click();
 
-    expect(new HomePage().expensesAddedSuccessfully()).toBe(true);
+    new HomePage().expectExpensesAddedSuccessfully();
   });
 
   it('should add another expenses row', function() {

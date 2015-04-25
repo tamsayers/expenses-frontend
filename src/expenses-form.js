@@ -17,6 +17,7 @@ angular.module('AddExpenses', ['expensesApp']).controller('ExpensesFormControlle
   this.success = function() {
     messages.reset();
     messages.add('Expenses successfully added.');
+
     $location.path('/');
   }
 }]);
