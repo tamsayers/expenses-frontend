@@ -1,6 +1,8 @@
-.settings
+.classpath
+.gradle/
+.settings/
 .project
 app/js
-node_modules
+node_modules/
 .DS_STORE
 /bin/
