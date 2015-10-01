@@ -1,0 +1,38 @@
+[
+  {
+    "description":"description 1",
+    "clientName":"client",
+    "supplier":"supplier",
+    "cost":{
+      "amount":1.99,
+      "costType":"Simple"
+    }
+  },
+  {
+    "description":"description 2",
+    "clientName":"client",
+    "supplier":"supplier",
+    "cost":{
+      "amount":2.99,
+      "costType":"Simple"
+    }
+  },
+  {
+    "description":"description 3",
+    "clientName":"client",
+    "supplier":"supplier",
+    "cost":{
+      "amount":3.99,
+      "costType":"Simple"
+    }
+  },
+  {
+    "description":"description 4",
+    "clientName":"client",
+    "supplier":"supplier",
+    "cost":{
+      "amount":4.99,
+      "costType":"Simple"
+    }
+  }
+]
